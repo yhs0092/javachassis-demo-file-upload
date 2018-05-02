@@ -1,0 +1,35 @@
+APPLICATION_ID: demo-file-upload
+service_description:
+  name: file-upload-server
+  version: 0.0.1
+cse:
+  service:
+    registry:
+      address: https://cse.cn-north-1.myhuaweicloud.com:443
+      instance:
+        watch: false
+  config:
+    client:
+      serverUri: https://cse.cn-north-1.myhuaweicloud.com:443
+      refreshMode: 1
+      refresh_interval: 5000
+  monitor:
+    client:
+      serverUri: https://cse.cn-north-1.myhuaweicloud.com:443
+  rest:
+    address: 0.0.0.0:18081
+  uploads:
+    directory: ./uploadTemp
+    maxSize: 256
+  credentials:
+    accessKey: ak
+    secretKey: sk
+    akskCustomCipher: default
+
+servicecomb:
+  accesslog:
+    enabled: false
+    pattern: "%h - - %t %r %s %B %SCB-traceId"
+
+fileUploadDemo:
+  saveFileDir: ./savedFile
