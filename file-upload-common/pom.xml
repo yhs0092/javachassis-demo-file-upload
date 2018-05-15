@@ -21,8 +21,8 @@
 
   <dependencies>
     <dependency>
-      <groupId>com.huawei.paas.cse</groupId>
-      <artifactId>cse-solution-service-engine</artifactId>
+      <groupId>org.apache.servicecomb</groupId>
+      <artifactId>transport-rest-servlet</artifactId>
     </dependency>
   </dependencies>
 

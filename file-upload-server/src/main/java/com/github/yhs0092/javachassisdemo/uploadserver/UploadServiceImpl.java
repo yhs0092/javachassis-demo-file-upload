@@ -11,6 +11,7 @@ import org.apache.servicecomb.swagger.invocation.exception.InvocationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
@@ -46,6 +47,17 @@ public class UploadServiceImpl implements UploadService {
 
     LOGGER.info("result = [{}]", result);
     return result;
+  }
+
+  @GetMapping(path = "/throwInvocationException")
+  public String throwInvocationException() {
+    throw new InvocationException(Status.REQUEST_ENTITY_TOO_LARGE.getStatusCode(),
+        Status.REQUEST_ENTITY_TOO_LARGE.getReasonPhrase(), "testErrorData");
+  }
+
+  @GetMapping(path = "/throwNullPointerException")
+  public String throwNullPointerException() {
+    throw new NullPointerException();
   }
 
   private String getSaveFileName(String fileName) {
